@@ -15,7 +15,10 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh deployment-user@192.168.56.101 "pipenv -h"'
+                sh 'ssh deployment-user@192.168.56.101 "pipenv shell; \
+                 cd polling; \
+                 git pull origin master; \
+                 pipenv install"'
             }
         }
     }
