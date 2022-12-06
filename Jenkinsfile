@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'echo building'
+                pwd
             }
         }
         stage('Test') { 
