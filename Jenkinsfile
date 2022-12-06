@@ -19,7 +19,7 @@ pipeline {
                  git pull origin master; \
                  pipenv install; \
                  cd polling; \
-                 pipenv --venv"'
+                 pipenv run python3 manage.py migrate"'
             }
         }
     }
