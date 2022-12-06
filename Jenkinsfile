@@ -9,9 +9,8 @@ pipeline {
         stage('Test') { 
             steps {
                 dir("/var/lib/jenkins/workspace/polling-pipeline/polling"){
-                    sh 'pwd'
+                    sh '/var/lib/jenkins/.local/bin/pipenv run python3 manage.py test'
                 }
-                sh 'pwd'
             }
         }
         stage('Deploy') { 
