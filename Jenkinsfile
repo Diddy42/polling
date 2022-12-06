@@ -8,7 +8,10 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh '/var/lib/jenkins/.local/bin/pipenv run python3 polling/manage.py test'
+                dir("/var/lib/jenkins/workspace/polling-pipeline/polling"){
+                    sh 'pwd'
+                }
+                sh 'pwd'
             }
         }
         stage('Deploy') { 
