@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'whoami'
+                sh 'pipenv install'
             }
         }
         stage('Test') { 
