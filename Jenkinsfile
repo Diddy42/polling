@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh deployment-user@192.168.56.101 "pwd"'
+                sh 'ssh deployment-user@192.168.56.101 "pipenv -h"'
             }
         }
     }
