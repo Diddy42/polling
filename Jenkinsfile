@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'pipenv install'
+                sh '/var/lib/jenkins/.local/bin/pipenv install'
             }
         }
         stage('Test') { 
