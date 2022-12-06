@@ -19,7 +19,9 @@ pipeline {
                  git pull origin master; \
                  pipenv install; \
                  cd polling; \
-                 pipenv run python3 manage.py migrate"'
+                 pipenv run python3 manage.py migrate; \
+                 sudo systemctl restart nginx; \
+                 sudo systemctl restart gunicorn"'
             }
         }
     }
