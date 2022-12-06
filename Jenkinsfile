@@ -17,7 +17,9 @@ pipeline {
             steps {
                 sh 'ssh deployment-user@192.168.56.101 "cd polling; \
                  git pull origin master; \
-                 pipenv install"'
+                 pipenv install; \
+                 cd polling; \
+                 pipenv --venv"'
             }
         }
     }
