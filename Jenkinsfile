@@ -6,7 +6,7 @@ pipeline {
                 sh '/var/lib/jenkins/.local/bin/pipenv install'
             }
         }
-        stage('test') { 
+        stage('Test') { 
             steps {
                 dir("/var/lib/jenkins/workspace/polling-pipeline/polling"){
                     sh '/var/lib/jenkins/.local/bin/pipenv run python3 manage.py test'
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy-to-Staging') { 
             steps {
-                sh 'ssh deployment-user@192.168.56.107 "cd polling; \
+                sh 'ssh -o StrictHostKeyChecking=no deployment-user@192.168.56.107 "cd polling; \
                  git pull origin master; \
                  pipenv install; \
                  cd polling; \
