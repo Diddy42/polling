@@ -6,7 +6,7 @@ pipeline {
                 sh '/var/lib/jenkins/.local/bin/pipenv install'
             }
         }
-        stage('Test') { 
+        stage('test') { 
             steps {
                 dir("/var/lib/jenkins/workspace/polling-pipeline/polling"){
                     sh '/var/lib/jenkins/.local/bin/pipenv run python3 manage.py test'
