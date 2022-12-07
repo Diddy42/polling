@@ -25,6 +25,10 @@ pipeline {
             }
         }
         stage('Deploy-to-Prod') { 
+            input {
+                message "Shall we deploy to prod?"
+                ok "Yes please!"
+            }
             steps {
                 sh 'ssh -o StrictHostKeyChecking=no deployment-user@192.168.56.101 "cd polling; \
                  git pull origin master; \
