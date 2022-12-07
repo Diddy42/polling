@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Deploy-to-Prod') { 
             steps {
-                sh 'ssh deployment-user@192.168.56.101 "cd polling; \
+                sh 'ssh -o StrictHostKeyChecking=no deployment-user@192.168.56.101 "cd polling; \
                  git pull origin master; \
                  pipenv install; \
                  cd polling; \
