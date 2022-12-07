@@ -13,7 +13,18 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') { 
+        stage('Deploy-to-Staging') { 
+            steps {
+                sh 'ssh deployment-user@192.168.56.107 "cd polling; \
+                 git pull origin master; \
+                 pipenv install; \
+                 cd polling; \
+                 pipenv run python3 manage.py migrate; \
+                 sudo systemctl restart nginx; \
+                 sudo systemctl restart gunicorn"'
+            }
+        }
+        stage('Deploy-to-Prod') { 
             steps {
                 sh 'ssh deployment-user@192.168.56.101 "cd polling; \
                  git pull origin master; \
