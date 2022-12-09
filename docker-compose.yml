@@ -4,15 +4,15 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_DB=$(DB_NAME)
-      - POSTGRES_USER=$(DB_USER)
-      - POSTGRES_PASSWORD=$(DB_PASSWORD)
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - pgdb-data:/var/lib/postgresql/data
 
   polling:
     build: .
-    command: pipenv run polling/manage.py runserver 0.0.0.0:8000
+    command: pipenv run python polling/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     image: polling-img
